@@ -1,9 +1,17 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: sans-serif;
-  text-align: center;
-  margin: 0;
-  padding: 24px 16px;
+  background: #ffffff;
+
+  min-height: 100svh;
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
+
 
 /* 英単語（中央上部・主役） */
 #question {
