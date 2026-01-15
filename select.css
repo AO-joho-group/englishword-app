@@ -1,12 +1,19 @@
-body {
+html, body {
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: sans-serif;
   background: #fff;
 }
 
+/* 全体 */
 #app {
   min-height: 100svh;
-  padding: 64px; /* 16px ×4 */
+
+  /* 縦4倍 */
+  padding: 64px;
 
   display: flex;
   flex-direction: column;
@@ -19,31 +26,41 @@ body {
   width: 100%;
   text-align: center;
 
-  /* フォント5倍（制限付き） */
-  font-size: clamp(48px, 45vw, 160px);
-  line-height: 1.25;
+  /* フォント5倍 */
+  font-size: 200px;
+  line-height: 1.2;
 
-  margin-bottom: 64px; /* 縦4倍 */
+  /* 縦4倍 */
+  margin-bottom: 128px;
 }
 
-/* 選択肢 */
+/* 選択肢全体 */
 .choices-column {
   width: 100%;
-  max-width: 630px; /* 420 ×1.5 */
+
+  /* 横1.5倍 */
+  max-width: 900px;
 
   display: flex;
   flex-direction: column;
-  gap: 48px; /* 12 ×4 */
+
+  /* 縦4倍 */
+  gap: 56px;
 }
 
+/* 選択肢ボタン */
 .choice {
+  width: 100%;
+
   /* フォント5倍 */
-  font-size: clamp(32px, 22vw, 96px);
+  font-size: 150px;
 
-  padding: 56px 32px; /* 縦4倍 / 横約1.5倍 */
+  /* 横1.5倍 / 縦4倍 */
+  padding: 80px 60px;
 
-  border: 4px solid #2a4d9b; /* 視認性維持 */
-  border-radius: 28px;
+  border: 6px solid #2a4d9b;
+  border-radius: 32px;
+
   background: #fff;
   color: #2a4d9b;
 }
@@ -51,34 +68,37 @@ body {
 /* 青コーナー */
 #history {
   width: 100%;
-  max-width: 630px; /* 1.5倍 */
 
-  padding: 48px; /* 12 ×4 */
-  margin-top: 64px;
+  /* 横1.5倍 */
+  max-width: 900px;
+
+  /* 縦4倍 */
+  padding: 64px;
+  margin-top: 128px;
 
   background: #2a4d9b;
   color: #fff;
-  border-radius: 24px;
+
+  border-radius: 32px;
 
   text-align: center;
 
   /* フォント5倍 */
-  font-size: clamp(24px, 12vw, 64px);
+  font-size: 80px;
 }
 
 /* 正誤オーバーレイ */
 #overlay {
   position: fixed;
   inset: 0;
-  display: none;
 
+  display: none;
   align-items: center;
   justify-content: center;
 
   /* フォント5倍 */
-  font-size: clamp(64px, 30vw, 180px);
+  font-size: 240px;
 
   background: rgba(0,0,0,0.45);
   color: #fff;
-  z-index: 100;
 }
