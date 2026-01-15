@@ -5,80 +5,81 @@ html, body {
 
 body {
   font-family: sans-serif;
-  background: #fff;
+  background: #ffffff;
 }
 
 /* 全体 */
 #app {
   min-height: 100svh;
-
-  padding: 64px;
-  padding-bottom: 320px; /* ← 青コーナー分の逃げ */
+  padding: 32px;
 
   display: flex;
   flex-direction: column;
-  align-items: center;        /* 横中央固定 */
+  align-items: center;
 }
 
-/* 問題文 */
+/* 問題文（下に2倍ずらす） */
 #question {
   width: 100%;
   text-align: center;
 
-  font-size: 200px;
+  font-size: 48px;
   line-height: 1.2;
 
-  margin-bottom: 128px;
+  margin-top: 48px;    /* ← ずらし（基準の約2倍） */
+  margin-bottom: 24px;
 }
 
-/* 選択肢全体 */
+/* 選択肢全体（縦1.5倍） */
 .choices-column {
   width: 100%;
-  max-width: 900px;
+  max-width: 420px;
 
-  margin-left: auto;   /* ← 念押し中央寄せ */
-  margin-right: auto;
+  margin: auto 0;
 
   display: flex;
   flex-direction: column;
-  gap: 56px;
+  gap: 24px;           /* 16px ×1.5 */
 }
 
-/* 選択肢 */
+/* 選択肢ボタン（縦1.5倍） */
 .choice {
   width: 100%;
 
-  font-size: 150px;
-  padding: 80px 60px;
+  font-size: 22px;
+  padding: 24px 16px;  /* 縦だけ1.5倍 */
 
-  border: 6px solid #2a4d9b;
-  border-radius: 32px;
+  border-radius: 14px;
+  border: 2px solid #2a4d9b;
   background: #fff;
   color: #2a4d9b;
 
   text-align: center;
 }
 
-/* 青コーナー：画面下・中央固定 */
+/* 青コーナー（下中央固定・サイズ固定） */
 #history {
   position: fixed;
   left: 50%;
-  bottom: 32px;
+  bottom: 24px;
   transform: translateX(-50%);
 
-  width: calc(100% - 128px);
-  max-width: 900px;
+  width: calc(100% - 64px);
+  max-width: 420px;
 
-  padding: 64px;
+  padding: 12px;
+  min-height: 48px;        /* ← 大きさ固定 */
 
+  display: flex;          /* 中央揃え */
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
   background: #2a4d9b;
   color: #fff;
-  border-radius: 32px;
 
+  font-size: 14px;
   text-align: center;
-  font-size: 80px;
-
-  z-index: 10;
 }
 
 /* 正誤オーバーレイ */
@@ -90,9 +91,9 @@ body {
   align-items: center;
   justify-content: center;
 
-  font-size: 240px;
+  font-size: 64px;
+  font-weight: bold;
 
-  background: rgba(0,0,0,0.45);
-  color: #fff;
-  z-index: 100;
+  background: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
 }
