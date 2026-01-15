@@ -7,14 +7,20 @@ html, body {
 body {
   background: #ffffff;
   font-family: sans-serif;
+}
 
-  min-height: 100svh;   /* ← 重要（スマホ対応） */
+.wrapper {
+  min-height: 100svh;                 /* 実表示基準 */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: env(safe-area-inset-top)
+           env(safe-area-inset-right)
+           env(safe-area-inset-bottom)
+           env(safe-area-inset-left);
 }
 
-/* 学習開始ボタン */
+/* ボタン */
 #startBtn {
   width: 80%;
   max-width: 360px;
@@ -22,16 +28,9 @@ body {
 
   background: #2a4d9b;
   color: #ffffff;
-
   font-size: 22px;
   font-weight: bold;
 
   border: none;
-  border-radius: 32px;   /* 左右が丸くなる */
-  cursor: pointer;
-}
-
-/* 押した感 */
-#startBtn:active {
-  opacity: 0.85;
+  border-radius: 32px;
 }
