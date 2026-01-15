@@ -1,28 +1,15 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>English Word App</title>
-  <link rel="stylesheet" href="select.css">
-</head>
 <body>
-
-  <!-- 問題 -->
-  <div id="question">Loading...</div>
-
-  <!-- 選択肢 -->
-  <div id="choices" class="choices-column"></div>
-
-  <!-- 前問ログ（青ゾーン） -->
-  <div id="history">
-    <span id="history-eng"></span>
-    <span id="history-sep">｜</span>
-    <span id="history-jp"></span>
+  <div id="app">
+    <div id="question">Loading...</div>
+    <div id="choices" class="choices-column"></div>
+    <div id="history">
+      <span id="history-eng"></span>
+      <span>｜</span>
+      <span id="history-jp"></span>
+    </div>
   </div>
 
-  <!-- 正誤オーバーレイ -->
   <div id="overlay"></div>
 
   <script src="select.js"></script>
 </body>
-</html>
