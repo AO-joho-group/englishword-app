@@ -1,20 +1,11 @@
-alert("INPUT JS LOADED");
+console.log("input js loaded");
 
 window.addEventListener("DOMContentLoaded", () => {
-  alert("DOM READY");
+  console.log("dom content loaded");
 
   const checkBtn = document.getElementById("check");
-  const answerInput = document.getElementById("answer");
+  const answer = document.getElementById("answer");
 
   console.log("check:", checkBtn);
-  console.log("answer:", answerInput);
-
-  if (!checkBtn || !answerInput) {
-    alert("IDがHTMLと一致していない");
-    return;
-  }
-
-  checkBtn.addEventListener("click", () => {
-    alert("clicked");
-  });
+  console.log("answer:", answer);
 });
