@@ -23,15 +23,15 @@ body {
 .mode-container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 36px;
   width: 100%;
   align-items: center;
 }
 
 /* 青い角丸ボタン */
 .mode-button {
-  width: 70vw;
-  height: 18vh;
+  width: 100vw;
+  height: 30vh;
 
   max-width: 500px;
   max-height: 160px;
@@ -43,7 +43,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
   text-decoration: none;
 
