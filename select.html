@@ -15,13 +15,11 @@
     #app {
       min-height: 100svh;
       padding: 32px;
-
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    /* 問題 */
     #question {
       width: 100%;
       text-align: center;
@@ -29,12 +27,10 @@
       margin: 24px 0;
     }
 
-    /* 選択肢 */
     .choices-column {
       width: 100%;
       max-width: 420px;
       margin: auto 0;
-
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -49,16 +45,13 @@
       color: #2a4d9b;
     }
 
-    /* 下固定・青コーナー */
     #history {
       position: fixed;
       left: 50%;
       bottom: 24px;
       transform: translateX(-50%);
-
       width: calc(100% - 64px);
       max-width: 420px;
-
       padding: 12px;
       border-radius: 12px;
       background: #2a4d9b;
@@ -67,7 +60,6 @@
       font-size: 14px;
     }
 
-    /* オーバーレイ */
     #overlay {
       position: fixed;
       inset: 0;
@@ -90,31 +82,32 @@
   <div id="history"></div>
   <div id="overlay"></div>
 
+  <!-- words.js を必ず先に -->
+  <script src="words.js"></script>
+
   <script>
-    const words = [
-      { eng: "apple", jp: "りんご" },
-      { eng: "run", jp: "走る" },
-      { eng: "blue", jp: "青い" },
-      { eng: "book", jp: "本" },
-      { eng: "eat", jp: "食べる" }
-    ];
+    const words = window.WORDS;
 
     const q = document.getElementById("question");
     const c = document.getElementById("choices");
     const h = document.getElementById("history");
     const o = document.getElementById("overlay");
 
-    function shuffle(a) {
-      return a.sort(() => Math.random() - 0.5);
+    function shuffle(arr) {
+      return [...arr].sort(() => Math.random() - 0.5);
     }
 
     function show() {
       const w = words[Math.floor(Math.random() * words.length)];
       q.textContent = w.eng;
 
+      const wrongs = shuffle(
+        words.filter(x => x.jp !== w.jp)
+      ).slice(0, 3);
+
       const choices = shuffle([
         w.jp,
-        ...shuffle(words.filter(x => x.jp !== w.jp)).slice(0, 3).map(x => x.jp)
+        ...wrongs.map(x => x.jp)
       ]);
 
       c.innerHTML = "";
