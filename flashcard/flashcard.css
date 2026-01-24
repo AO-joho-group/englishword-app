@@ -23,7 +23,7 @@ body {
   max-width: 90vw;
   padding: 0 5vw;
 
-  font-size: 4rem;
+  font-size: 7rem;
   text-align: center;
 
   white-space: nowrap;
@@ -37,7 +37,7 @@ body {
 }
 
 #controls button {
-  font-size: 3rem;
+  font-size: 1.4rem;
   padding: 1.2vh 6vw;
 
   background: #fff;
