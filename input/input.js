@@ -1,3 +1,6 @@
+alert("input.js 実行されてる");
+
+
 window.addEventListener("DOMContentLoaded", () => {
   const jpEl = document.getElementById("question-jp");
   const enEl = document.getElementById("question-en");
