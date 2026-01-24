@@ -8,14 +8,21 @@ body {
   font-family: sans-serif;
 }
 
-/* 単語表示 */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 単語表示エリア */
 #word-area {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   text-align: center;
+  padding: 0 5vw;
 }
 
 #question-en {
@@ -26,18 +33,14 @@ body {
 
 #question-jp {
   font-size: 1.8rem;
-  color: #555;
+  color: #444;
   margin-top: 1vh;
   white-space: nowrap;
 }
 
 /* 入力エリア */
 #input-area {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
+  padding: 2vh 5vw;
   text-align: center;
 }
 
@@ -60,18 +63,14 @@ body {
 
 /* 下固定履歴 */
 #history {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   height: 10vh;
+  background: #2a4d9b;
+  color: #fff;
 
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1vw;
 
-  background: #2a4d9b;
-  color: #fff;
   font-size: 1.1rem;
 }
