@@ -18,12 +18,19 @@ body {
   gap: 4vh;
 }
 
+/* 単語表示（1行固定） */
 #word {
+  max-width: 90vw;
+  padding: 0 5vw;
+
   font-size: 4rem;
   text-align: center;
-  padding: 0 5vw;
+
+  white-space: nowrap;
+  overflow: hidden;
 }
 
+/* 操作ボタン */
 #controls {
   display: flex;
   gap: 4vw;
@@ -45,7 +52,6 @@ body {
 #controls button:active {
   background: rgba(42, 77, 155, 0.12);
 }
-
 
 #hint {
   font-size: 1rem;
