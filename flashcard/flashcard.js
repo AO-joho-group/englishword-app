@@ -45,6 +45,9 @@ document.addEventListener("keydown", (e) => {
     showEnglish = !showEnglish;
     render();
   }
+
+  wordEl.textContent = "JSは動いてる";
+
 });
 
 // 初期表示
