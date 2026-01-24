@@ -8,13 +8,13 @@
 </head>
 
 <body>
-  <!-- 単語表示（中央・やや上） -->
+  <!-- 単語表示 -->
   <div id="word-area">
-    <div id="question-en"></div>
-    <div id="question-jp"></div>
+    <div id="question-en">ENGLISH</div>
+    <div id="question-jp">日本語</div>
   </div>
 
-  <!-- 入力欄（位置固定） -->
+  <!-- 入力エリア -->
   <div id="input-area">
     <input
       id="answer"
@@ -28,11 +28,12 @@
 
   <!-- 下固定：履歴 -->
   <div id="history">
-    <span id="history-eng"> </span>
+    <span id="history-eng">---</span>
     <span>｜</span>
-    <span id="history-jp"> </span>
+    <span id="history-jp">---</span>
   </div>
 
+  <!-- 読み込み順は絶対この順 -->
   <script src="../js/words.js"></script>
   <script src="./input.js"></script>
 </body>
