@@ -10,30 +10,55 @@ window.addEventListener("DOMContentLoaded", () => {
   const historyJp = document.getElementById("history-jp");
 
   if (!jpEl || !enEl || !answerInput || !checkBtn) {
-    console.error("必要な要素が見つからない");
+    console.error("必要な要素が見つかりません");
     return;
   }
 
-  if (!window.WORDS || WORDS.length === 0) {
+  if (!window.WORDS || window.WORDS.length === 0) {
     alert("words.js が読み込まれていません");
     return;
   }
 
   let current = null;
 
+  /* ===== 単語選択 ===== */
   function pickWord() {
     return WORDS[Math.floor(Math.random() * WORDS.length)];
   }
 
+  /* ===== フォント自動縮小（1行固定） ===== */
+  function fitText(el, maxSize, minSize) {
+    let size = maxSize;
+    el.style.fontSize = size + "px";
+
+    while (el.scrollWidth > el.clientWidth && size > minSize) {
+      size -= 2;
+      el.style.fontSize = size + "px";
+    }
+  }
+
+  function fitWords() {
+    fitText(enEl, 52, 24); // 英語：大きめ
+    fitText(jpEl, 36, 18); // 日本語：やや小さめ
+  }
+
+  /* ===== 表示更新 ===== */
   function showWord() {
     current = pickWord();
+
+    enEl.textContent = current.en;
     jpEl.textContent = current.jp;
-    enEl.textContent = current.en; // ← 常に表示
+
     answerInput.value = "";
     resultEl.textContent = "";
+
+    // レイアウト反映後に縮小判定
+    requestAnimationFrame(fitWords);
+
     answerInput.focus();
   }
 
+  /* ===== 判定 ===== */
   function judge() {
     if (!current) return;
 
@@ -52,6 +77,7 @@ window.addEventListener("DOMContentLoaded", () => {
     setTimeout(showWord, 900);
   }
 
+  /* ===== イベント ===== */
   checkBtn.addEventListener("click", judge);
 
   answerInput.addEventListener("keydown", (e) => {
@@ -60,5 +86,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  /* ===== 初期表示 ===== */
   showWord();
 });
