@@ -8,37 +8,30 @@
 </head>
 
 <body>
-  <div id="app">
-
-    <!-- 日本語（問題） -->
+  <!-- 単語表示 -->
+  <div id="word-area">
     <div id="question-jp"></div>
+    <div id="question-en"></div>
+  </div>
 
-    <!-- 入力欄 -->
+  <!-- 入力欄（固定） -->
+  <div id="input-area">
     <input
       id="answer"
       type="text"
       placeholder="英単語を入力"
       autocomplete="off"
     >
-
-    <!-- 判定ボタン -->
     <button id="check">判定</button>
-
-    <!-- 結果表示 -->
     <div id="result"></div>
-
-    <!-- 履歴（高さ固定） -->
-    <div id="history">
-      <span id="history-eng">&nbsp;</span>
-      <span>｜</span>
-      <span id="history-jp">&nbsp;</span>
-    </div>
-
   </div>
 
-  <script>
-    console.log("this page loaded");
-  </script>
+  <!-- 下固定：履歴 -->
+  <div id="history">
+    <span id="history-eng"> </span>
+    <span>｜</span>
+    <span id="history-jp"> </span>
+  </div>
 
   <script src="../js/words.js"></script>
   <script src="./input.js"></script>
