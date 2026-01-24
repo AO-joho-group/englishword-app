@@ -12,7 +12,7 @@ const nextBtn = document.getElementById("next");
 const prevBtn = document.getElementById("prev");
 
 function adjustFontSize() {
-  let size = 4; // rem
+  let size = 4;
   wordEl.style.fontSize = size + "rem";
 
   while (wordEl.scrollWidth > wordEl.clientWidth && size > 1.5) {
@@ -24,8 +24,13 @@ function adjustFontSize() {
 function render() {
   const w = words[index];
   wordEl.textContent = showEnglish ? w.eng : w.jp;
-  adjustFontSize();
+
+  // ★スマホ対策：描画後に実行
+  requestAnimationFrame(() => {
+    adjustFontSize();
+  });
 }
+
 
 function next() {
   index = (index + 1) % words.length;
@@ -43,6 +48,13 @@ wordEl.addEventListener("click", () => {
   showEnglish = !showEnglish;
   render();
 });
+
+window.addEventListener("resize", () => {
+  requestAnimationFrame(() => {
+    adjustFontSize();
+  });
+});
+
 
 nextBtn.addEventListener("click", next);
 prevBtn.addEventListener("click", prev);
