@@ -1,18 +1,21 @@
-if (!window.words || window.words.length === 0) {
+// words.js 読み込み確認
+if (!window.WORDS || window.WORDS.length === 0) {
   alert("words.js が読み込まれていません");
+  throw new Error("WORDS not loaded");
 }
 
 let index = 0;
 let showEnglish = true;
 
-// シャッフル
-const words = [...window.words].sort(() => Math.random() - 0.5);
+// シャッフル（破壊しない）
+const words = [...window.WORDS].sort(() => Math.random() - 0.5);
 
 const wordEl = document.getElementById("word");
 
 function render() {
   const w = words[index];
-  wordEl.textContent = showEnglish ? w[0] : w[1];
+  if (!w) return;
+  wordEl.textContent = showEnglish ? w.en : w.jp;
 }
 
 function next() {
@@ -35,7 +38,7 @@ wordEl.addEventListener("click", () => {
 
 // キー操作
 document.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowRight") next();
+  if (e.key === "ArrowRight" || e.key === "Enter") next();
   if (e.key === "ArrowLeft") prev();
   if (e.key === " ") {
     e.preventDefault();
@@ -44,4 +47,5 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+// 初期表示
 render();
