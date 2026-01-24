@@ -1,9 +1,9 @@
-if (!window.words || window.words.length === 0) {
+if (!window.WORDS || window.WORDS.length === 0) {
   alert("words.js が読み込まれていません");
 }
 
-// シャッフル済み単語
-const words = [...window.words].sort(() => Math.random() - 0.5);
+// シャッフル
+const words = [...window.WORDS].sort(() => Math.random() - 0.5);
 
 let index = 0;
 let showEnglish = true;
@@ -13,9 +13,8 @@ const nextBtn = document.getElementById("next");
 const prevBtn = document.getElementById("prev");
 
 function render() {
-  if (!wordEl || words.length === 0) return;
   const w = words[index];
-  wordEl.textContent = showEnglish ? w[0] : w[1];
+  wordEl.textContent = showEnglish ? w.eng : w.jp;
 }
 
 function next() {
@@ -30,13 +29,12 @@ function prev() {
   render();
 }
 
-// タップで英⇄日
+// 単語タップで切替
 wordEl.addEventListener("click", () => {
   showEnglish = !showEnglish;
   render();
 });
 
-// ボタン操作
 nextBtn.addEventListener("click", next);
 prevBtn.addEventListener("click", prev);
 
