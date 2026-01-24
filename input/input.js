@@ -1,4 +1,4 @@
-alert("input.js 実行されてる");
+//alert("input.js 実行されてる");
 
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -21,8 +21,8 @@ window.addEventListener("DOMContentLoaded", () => {
     return WORDS[Math.floor(Math.random() * WORDS.length)];
   }
 
- // function showWord() {
-   /*
+ function showWord() {
+   
     current = WORDS[Math.floor(Math.random() * WORDS.length)];
   
     enEl.textContent = current.en;   // ← 修正
@@ -30,14 +30,14 @@ window.addEventListener("DOMContentLoaded", () => {
   
     answerInput.value = "";
     resultEl.textContent = "";
-  */
+  /*
   function showWord() {
     current = WORDS[0];
   
     enEl.textContent = "TEST_EN";
     jpEl.textContent = "TEST_JP";
   
-
+*/
   }
 
 
