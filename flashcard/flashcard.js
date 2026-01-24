@@ -1,20 +1,17 @@
-// words.js 読み込み確認
 if (!window.WORDS || window.WORDS.length === 0) {
   alert("words.js が読み込まれていません");
-  throw new Error("WORDS not loaded");
 }
 
 let index = 0;
 let showEnglish = true;
 
-// シャッフル（破壊しない）
+// シャッフル
 const words = [...window.WORDS].sort(() => Math.random() - 0.5);
 
 const wordEl = document.getElementById("word");
 
 function render() {
   const w = words[index];
-  if (!w) return;
   wordEl.textContent = showEnglish ? w.en : w.jp;
 }
 
@@ -45,10 +42,6 @@ document.addEventListener("keydown", (e) => {
     showEnglish = !showEnglish;
     render();
   }
-
-  wordEl.textContent = "JSは動いてる";
-
 });
 
-// 初期表示
 render();
