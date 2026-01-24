@@ -1,4 +1,5 @@
-alert("input.js 読み込みOK");
+// 読み込み確認
+alert("input.js loaded");
 
 // 要素取得
 const enEl = document.getElementById("question-en");
@@ -9,9 +10,9 @@ const resultEl = document.getElementById("result");
 const histEn = document.getElementById("history-eng");
 const histJp = document.getElementById("history-jp");
 
-// 基本チェック
+// 必須チェック
 if (!enEl || !jpEl || !answerEl || !checkBtn) {
-  alert("HTML要素が取れていない");
+  alert("HTML要素が取得できていない");
 }
 
 if (!window.WORDS || window.WORDS.length === 0) {
@@ -21,7 +22,7 @@ if (!window.WORDS || window.WORDS.length === 0) {
 // 状態
 let current = null;
 
-// 表示
+// 単語表示
 function showWord() {
   current = WORDS[Math.floor(Math.random() * WORDS.length)];
 
@@ -53,10 +54,13 @@ function judge() {
   setTimeout(showWord, 1000);
 }
 
-// イベント
+// イベント登録
 checkBtn.addEventListener("click", judge);
-answerEl.addEventListener("keydown", e => {
-  if (e.key === "Enter") judge();
+
+answerEl.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    judge();
+  }
 });
 
 // 初期表示
