@@ -26,16 +26,24 @@ body {
 
 #controls {
   display: flex;
-  gap: 24px;
+  gap: 4vw;
 }
 
 #controls button {
-  font-size: 2rem;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 12px;
-  background: #2a4d9b;
-  color: #fff;
+  font-size: 1.4rem;
+  padding: 1.2vh 6vw;
+
+  background: #fff;
+  color: #2a4d9b;
+
+  border: 2px solid #2a4d9b;
+  border-radius: 14px;
+
+  outline: none;
+}
+
+#controls button:active {
+  background: rgba(42, 77, 155, 0.12);
 }
 
 
