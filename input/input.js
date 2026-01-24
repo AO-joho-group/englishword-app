@@ -1,63 +1,63 @@
-//alert("input.js 実行されてる");
+alert("input.js 読み込みOK");
 
+// 要素取得
+const enEl = document.getElementById("question-en");
+const jpEl = document.getElementById("question-jp");
+const answerEl = document.getElementById("answer");
+const checkBtn = document.getElementById("check");
+const resultEl = document.getElementById("result");
+const histEn = document.getElementById("history-eng");
+const histJp = document.getElementById("history-jp");
 
-window.addEventListener("DOMContentLoaded", () => {
-  const jpEl = document.getElementById("question-jp");
-  const enEl = document.getElementById("question-en");
-  const answerInput = document.getElementById("answer");
-  const checkBtn = document.getElementById("check");
-  const resultEl = document.getElementById("result");
-  const historyEn = document.getElementById("history-eng");
-  const historyJp = document.getElementById("history-jp");
+// 基本チェック
+if (!enEl || !jpEl || !answerEl || !checkBtn) {
+  alert("HTML要素が取れていない");
+}
 
-  if (!window.WORDS || WORDS.length === 0) {
-    alert("words.js が読み込まれていません");
-    return;
+if (!window.WORDS || window.WORDS.length === 0) {
+  alert("WORDS が存在しない");
+}
+
+// 状態
+let current = null;
+
+// 表示
+function showWord() {
+  current = WORDS[Math.floor(Math.random() * WORDS.length)];
+
+  enEl.textContent = current.en;
+  jpEl.textContent = current.jp;
+
+  answerEl.value = "";
+  resultEl.textContent = "";
+
+  answerEl.focus();
+}
+
+// 判定
+function judge() {
+  if (!current) return;
+
+  const input = answerEl.value.trim().toLowerCase();
+  const correct = current.en.toLowerCase();
+
+  if (input === correct) {
+    resultEl.textContent = "正解";
+  } else {
+    resultEl.textContent = "正解：" + current.en;
   }
 
-  let current = null;
+  histEn.textContent = current.en;
+  histJp.textContent = current.jp;
 
-  function pickWord() {
-    return WORDS[Math.floor(Math.random() * WORDS.length)];
-  }
+  setTimeout(showWord, 1000);
+}
 
- function showWord() {
-   
-    current = WORDS[Math.floor(Math.random() * WORDS.length)];
-  
-    enEl.textContent = current.en;   // ← 修正
-    jpEl.textContent = current.jp;
-  
-    answerInput.value = "";
-    resultEl.textContent = "";
-  /*
-  function showWord() {
-    current = WORDS[0];
-  
-    enEl.textContent = "TEST_EN";
-    jpEl.textContent = "TEST_JP";
-  
-*/
-  }
-
-
-  function judge() {
-    const input = answerInput.value.trim().toLowerCase();
-    const correct = current.en.toLowerCase(); // ← ここも en
-  
-    resultEl.textContent =
-      input === correct ? "正解" : `正解：${current.en}`;
-  
-    historyEn.textContent = current.en;
-    historyJp.textContent = current.jp;
-  
-    setTimeout(showWord, 900);
-  }
-
-  checkBtn.addEventListener("click", judge);
-  answerInput.addEventListener("keydown", e => {
-    if (e.key === "Enter") judge();
-  });
-
-  showWord();
+// イベント
+checkBtn.addEventListener("click", judge);
+answerEl.addEventListener("keydown", e => {
+  if (e.key === "Enter") judge();
 });
+
+// 初期表示
+showWord();
