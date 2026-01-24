@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
     return WORDS[Math.floor(Math.random() * WORDS.length)];
   }
 
-  function showWord() {
+ // function showWord() {
    /*
     current = WORDS[Math.floor(Math.random() * WORDS.length)];
   
@@ -31,7 +31,7 @@ window.addEventListener("DOMContentLoaded", () => {
     answerInput.value = "";
     resultEl.textContent = "";
   */
-    function showWord() {
+  function showWord() {
     current = WORDS[0];
   
     enEl.textContent = "TEST_EN";
