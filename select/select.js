@@ -66,11 +66,9 @@ function judge(answer) {
 
 const backBtn = document.getElementById("backBtn");
 
-if (backBtn) {
-  backBtn.addEventListener("click", () => {
-    history.back();
-  });
-}
+document.getElementById("backBtn").addEventListener("click", () => {
+  location.href = "mode.html";
+});
 
 // 初期化
 showQuestion();
