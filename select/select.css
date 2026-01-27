@@ -79,21 +79,24 @@ body {
 
 #backBtn {
   position: fixed;
-  top: 15px;
-  left: 15px;
+  top: 20px;
+  left: 20px;
 
-  padding: 8px 14px;
-  font-size: 14px;
+  width: 160px;
+  height: 56px;
 
-  background: #f0f0f0;
-  border: 1px solid #999;
-  border-radius: 6px;
+  background: #ffffff;
+  border: 2px solid #b0b0b0;
+  border-radius: 0;
+
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
 
   cursor: pointer;
-  z-index: 1000;
 }
 
 #backBtn:hover {
-  background: #e0e0e0;
+  background: #f0f0f0;
 }
 
