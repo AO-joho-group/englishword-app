@@ -76,3 +76,24 @@ body {
   color: white;
   text-align: center;
 }
+
+#backBtn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+
+  padding: 8px 14px;
+  font-size: 14px;
+
+  background: #f0f0f0;
+  border: 1px solid #999;
+  border-radius: 6px;
+
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#backBtn:hover {
+  background: #e0e0e0;
+}
+
