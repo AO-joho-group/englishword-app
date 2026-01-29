@@ -74,6 +74,7 @@
 </head>
 
 <body>
+  <button id="backBtn">戻る</button>
   <div id="app">
     <div id="question">Loading...</div>
     <div id="choices" class="choices-column"></div>
@@ -91,9 +92,7 @@
       window.location.href = "../mode/index.html";
     };
   
-  
     const words = window.WORDS;
-
     const q = document.getElementById("question");
     const c = document.getElementById("choices");
     const h = document.getElementById("history");
@@ -140,4 +139,3 @@
     show();
   </script>
 </body>
-</html>
