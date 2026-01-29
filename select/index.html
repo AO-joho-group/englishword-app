@@ -74,7 +74,6 @@
 </head>
 
 <body>
-  <button id="backBtn">戻る</button>
   <div id="app">
     <div id="question">Loading...</div>
     <div id="choices" class="choices-column"></div>
@@ -87,6 +86,12 @@
   <script src="../js/words.js"></script>
 
   <script>
+    const backBtn = document.getElementById("backBtn");
+    backBtn.onclick = () => {
+      window.location.href = "../mode/index.html";
+    };
+  
+  
     const words = window.WORDS;
 
     const q = document.getElementById("question");
