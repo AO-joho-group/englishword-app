@@ -1,1 +1,28 @@
+/* 共通ボタン */
+button {
+  font-size: 16px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  background: #2a4d9b;
+  color: #fff;
+}
+
+/* 選択肢ボタン */
+.choice {
+  font-size: 22px;
+  padding: 16px;
+  border-radius: 14px;
+  border: 2px solid #2a4d9b;
+  background: #fff;
+  color: #2a4d9b;
+}
+
+/* 戻るボタン */
+#backBtn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+}
 
