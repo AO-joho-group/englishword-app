@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Quiz</title>
-  <link rel="stylesheet" href="/english-word-study/css/button.css">
-  <link rel="stylesheet" href="/english-word-study/select/select.css">
+
   <style>
     body {
       margin: 0;
@@ -37,6 +36,15 @@
       gap: 16px;
     }
 
+    .choice {
+      font-size: 22px;
+      padding: 16px;
+      border-radius: 14px;
+      border: 2px solid #2a4d9b;
+      background: #fff;
+      color: #2a4d9b;
+    }
+
     #history {
       position: fixed;
       left: 50%;
@@ -66,7 +74,7 @@
 </head>
 
 <body>
-  <button id="backBtn">←戻る</button>
+  <button id="backBtn">戻る</button>
   <div id="app">
     <div id="question">Loading...</div>
     <div id="choices" class="choices-column"></div>
@@ -79,33 +87,30 @@
   <script src="../js/words.js"></script>
 
   <script>
-    backBtn.onclick = () => {
-      window.location.href = "/english-word-study/mode/";
-    };
-    
     const words = window.WORDS;
+  
     const q = document.getElementById("question");
     const c = document.getElementById("choices");
     const h = document.getElementById("history");
     const o = document.getElementById("overlay");
-
+  
     function shuffle(arr) {
       return [...arr].sort(() => Math.random() - 0.5);
     }
-
+  
     function show() {
       const w = words[Math.floor(Math.random() * words.length)];
       q.textContent = w.eng;
-
+  
       const wrongs = shuffle(
         words.filter(x => x.jp !== w.jp)
       ).slice(0, 3);
-
+  
       const choices = shuffle([
         w.jp,
         ...wrongs.map(x => x.jp)
       ]);
-
+  
       c.innerHTML = "";
       choices.forEach(jp => {
         const b = document.createElement("button");
@@ -115,18 +120,24 @@
         c.appendChild(b);
       });
     }
-
+  
     function judge(ok, w) {
       o.textContent = ok ? "正解" : "不正解";
       o.style.display = "flex";
       h.textContent = `${w.eng} ｜ ${w.jp}`;
-
+  
       setTimeout(() => {
         o.style.display = "none";
         show();
       }, 700);
     }
-
+  
+    // ★ 追加部分：戻るボタンでページ遷移
+    document.getElementById("backBtn").addEventListener("click", () => {
+      window.location.href = "../mode/index.html";
+    });
+  
     show();
   </script>
 </body>
+</html>
